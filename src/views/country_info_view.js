@@ -19,6 +19,9 @@ CountryInfoView.prototype.render = function (country) {
 
   const countryFlag = country.flag;
   this.renderFlag(countryFlag);
+
+  const countryRegion = country.region;
+  this.renderRegion(countryRegion);
 };
 
 CountryInfoView.prototype.renderName = function (countryName) {
@@ -32,6 +35,16 @@ CountryInfoView.prototype.renderFlag = function (countryFlag) {
   // countryFlagElement.classList.add("medium-image");
   countryFlagElement.src = countryFlag;
   this.container.appendChild(countryFlagElement);
+};
+
+CountryInfoView.prototype.renderRegion = function (countryRegion) {
+  const regionTitle = document.createElement("h3");
+  regionTitle.textContent = "Region:";
+  this.container.appendChild(regionTitle);
+
+  const countryRegionElement = document.createElement("p");
+  countryRegionElement.textContent = countryRegion;
+  this.container.appendChild(countryRegionElement);
 };
 
 module.exports = CountryInfoView;
