@@ -9,9 +9,16 @@ const SelectVeiw = function (element){
 SelectVeiw.prototype.bindEvents = function () {
   PubSub.subscribe('Country:countries-ready', (event) => {
     const countriesArray = event.detail;
-    console.log(countriesArray);
-
+    this.populateDropDown(countriesArray);
   })
 };
 
+SelectVeiw.prototype.populateDropDown = function (array) {
+  array.forEach((country, index) => {
+    const option = document.createElement("option");
+    option.textContent = country.name;
+    option.value = index;
+    this.element.appendChild(option);
+  });
+};
 module.exports = SelectVeiw;
