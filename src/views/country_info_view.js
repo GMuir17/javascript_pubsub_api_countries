@@ -22,6 +22,10 @@ CountryInfoView.prototype.render = function (country) {
 
   const countryRegion = country.region;
   this.renderRegion(countryRegion);
+
+  const countryLanguages = country.languages;
+  console.log(countryLanguages);
+  this.renderLanguages(countryLanguages);
 };
 
 CountryInfoView.prototype.renderName = function (countryName) {
@@ -46,5 +50,22 @@ CountryInfoView.prototype.renderRegion = function (countryRegion) {
   countryRegionElement.textContent = countryRegion;
   this.container.appendChild(countryRegionElement);
 };
+
+CountryInfoView.prototype.renderLanguages = function (languages) {
+  const languageTitle = document.createElement("h3");
+  languageTitle.textContent = "Languages:";
+  this.container.appendChild(languageTitle);
+
+  const languageList = document.createElement("ul");
+  this.container.appendChild(languageList);
+
+  languages.forEach((language) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = language.name;
+    languageList.appendChild(listItem);
+  })
+};
+
+
 
 module.exports = CountryInfoView;
