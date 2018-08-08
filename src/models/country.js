@@ -14,7 +14,6 @@ Country.prototype.bindEvents = function () {
     })
 };
 
-
 Country.prototype.getData = function () {
   const request = new Request("https://restcountries.eu/rest/v2/all");
   request.get((data) => {
