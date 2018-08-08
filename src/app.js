@@ -3,7 +3,6 @@ const SelectVeiw = require('./views/select_view.js');
 const CountryInfoView = require('./views/country_info_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
-
   const country = new Country();
   country.bindEvents();
 
@@ -14,8 +13,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector("#country")
   const countryInfoView = new CountryInfoView(container);
   countryInfoView.bindEvents();
-
-
-
-
 });

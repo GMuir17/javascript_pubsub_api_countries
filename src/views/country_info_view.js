@@ -3,17 +3,18 @@ const Request = require("../helpers/request.js");
 
 const CountryInfoView = function (container) {
   this.container = container;
-}
+};
 
 CountryInfoView.prototype.bindEvents = function () {
   PubSub.subscribe("Country:selected-country", (evt) => {
       const country = evt.detail;
       this.render(country);
-  })
+  });
 };
 
 CountryInfoView.prototype.render = function (country) {
   this.container.innerHTML = '';
+
   const countryName = country.name;
   this.renderName(countryName);
 
@@ -36,7 +37,6 @@ CountryInfoView.prototype.renderName = function (countryName) {
 
 CountryInfoView.prototype.renderFlag = function (countryFlag) {
   const countryFlagElement = document.createElement("img");
-  // countryFlagElement.classList.add("medium-image");
   countryFlagElement.src = countryFlag;
   this.container.appendChild(countryFlagElement);
 };
@@ -63,7 +63,7 @@ CountryInfoView.prototype.renderLanguages = function (languages) {
     const listItem = document.createElement('li');
     listItem.textContent = language.name;
     languageList.appendChild(listItem);
-  })
+  });
 };
 
 

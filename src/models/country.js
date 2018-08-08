@@ -6,12 +6,12 @@ const Country = function () {
 };
 
 Country.prototype.bindEvents = function () {
-    this.getData();
+  this.getData();
 
-    PubSub.subscribe("SelectView:change", (evt) => {
-      const selectedIndex = evt.detail;
-      this.publishCountryInfo(selectedIndex);
-    })
+  PubSub.subscribe("SelectView:change", (evt) => {
+    const selectedIndex = evt.detail;
+    this.publishCountryInfo(selectedIndex);
+  });
 };
 
 Country.prototype.getData = function () {

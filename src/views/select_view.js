@@ -3,7 +3,6 @@ const Request = require("../helpers/request.js");
 
 const SelectVeiw = function (element){
   this.element = element;
-
 }
 
 SelectVeiw.prototype.bindEvents = function () {
