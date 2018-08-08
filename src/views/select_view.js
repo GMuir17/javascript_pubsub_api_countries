@@ -10,6 +10,11 @@ SelectVeiw.prototype.bindEvents = function () {
   PubSub.subscribe('Country:countries-ready', (event) => {
     const countriesArray = event.detail;
     this.populateDropDown(countriesArray);
+  });
+
+  this.element.addEventListener("change", (evt) => {
+    const selectedIndex = evt.target.value;
+    PubSub.publish("SelectView:change", selectedIndex);
   })
 };
 
@@ -21,4 +26,5 @@ SelectVeiw.prototype.populateDropDown = function (array) {
     this.element.appendChild(option);
   });
 };
+
 module.exports = SelectVeiw;
